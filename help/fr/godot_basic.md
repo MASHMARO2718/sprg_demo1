@@ -68,3 +68,5 @@ func _ready():
 
 ## Référence
 - Documentation officielle : https://docs.godotengine.org/fr/stable/
+- https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_first_script.html
+

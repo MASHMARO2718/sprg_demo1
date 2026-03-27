@@ -68,3 +68,4 @@ func _ready():
 
 ## 参考
 - 公式ドキュメント: https://docs.godotengine.org/ja/stable/
+- https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_first_script.html
