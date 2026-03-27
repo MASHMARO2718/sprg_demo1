@@ -1,0 +1,146 @@
+[gd_scene load_steps=2 format=3 uid="uid://d8gmodesel0001"]
+
+[ext_resource type="Script" path="res://assets/scene/test1/game_mode_select.gd" id="1_script"]
+
+[node name="GameModeSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Layer_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.09, 0.13, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="MainColumn" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="VBoxContainer" parent="SafeArea/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="SafeArea/MainColumn/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Game mode"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="SafeArea/MainColumn/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.7, 0.78, 1)
+theme_override_font_sizes/font_size = 15
+text = "Choose how you want to start a new game"
+horizontal_alignment = 1
+
+[node name="TopSpacer" type="Control" parent="SafeArea/MainColumn"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScreenHost" type="Control" parent="SafeArea/MainColumn" groups=["mode_select_screen_host"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModeBlock" type="VBoxContainer" parent="SafeArea/MainColumn"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 14
+
+[node name="PrimaryModeList" type="VBoxContainer" parent="SafeArea/MainColumn/ModeBlock"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="BtnModeCampaign" type="Button" parent="SafeArea/MainColumn/ModeBlock/PrimaryModeList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Campaign"
+
+[node name="BtnModeSkirmish" type="Button" parent="SafeArea/MainColumn/ModeBlock/PrimaryModeList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Skirmish"
+
+[node name="BtnModeTutorial" type="Button" parent="SafeArea/MainColumn/ModeBlock/PrimaryModeList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Tutorial"
+
+[node name="ModeDetails" type="Label" parent="SafeArea/MainColumn/ModeBlock"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.6, 0.68, 1)
+theme_override_font_sizes/font_size = 13
+text = "Select a mode. Descriptions can be updated from script when you add real flows."
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="MidSpacer" type="Control" parent="SafeArea/MainColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Footer" type="HBoxContainer" parent="SafeArea/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnBack" type="Button" parent="SafeArea/MainColumn/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+text = "Back"
+
+[node name="FooterSpacer" type="Control" parent="SafeArea/MainColumn/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FooterHint" type="Label" parent="SafeArea/MainColumn"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.45, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 12
+text = "Mouse or keyboard: focus a button (Tab / arrows) and press Enter. Campaign opens the hex board; arrow keys move your unit there."
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="Layer_Overlay" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ModalHost" type="Control" parent="Layer_Overlay"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

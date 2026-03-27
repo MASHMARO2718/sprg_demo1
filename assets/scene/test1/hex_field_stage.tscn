@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://e2hexstage001"]
+
+[ext_resource type="Script" path="res://assets/script/test1/hex_field_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://assets/script/test1/hex_grid.gd" id="2_grid"]
+[ext_resource type="Script" path="res://assets/script/test1/srpg_map_cursor.gd" id="3_cursor"]
+[ext_resource type="Script" path="res://assets/script/test1/srpg_camera_dead_zone.gd" id="4_cam"]
+[ext_resource type="Texture2D" uid="uid://cynx26eucwrfi" path="res://icon.svg" id="5_icon"]
+
+[node name="HexFieldStage" type="Node2D"]
+script = ExtResource("1_stage")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="HexGrid" type="Node2D" parent="World"]
+z_index = 0
+script = ExtResource("2_grid")
+grid_columns = 28
+grid_rows = 16
+hex_outer_radius = 26.0
+
+[node name="MapCursor" type="Node2D" parent="World"]
+z_index = 20
+z_as_relative = false
+script = ExtResource("3_cursor")
+hex_map = NodePath("../HexGrid")
+start_cell = Vector2i(14, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/MapCursor"]
+z_index = 1
+texture = ExtResource("5_icon")
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(0, 0)
+enabled = true
+script = ExtResource("4_cam")
+cursor_path = NodePath("../MapCursor")
+map_path = NodePath("../HexGrid")
+margin_pixels = Vector2(112, 112)
+smoothing = 14.0
+zoom_vs_fit_all = 0.38

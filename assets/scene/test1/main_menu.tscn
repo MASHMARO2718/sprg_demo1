@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4menu01main00"]
+
+[ext_resource type="Script" path="res://assets/scene/test1/main_menu.gd" id="1_script"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Layer_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.1, 0.14, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="MainColumn" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="VBoxContainer" parent="SafeArea/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="SafeArea/MainColumn/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SPRG"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="SafeArea/MainColumn/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.7, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "Strategic / tactical RPG — main menu"
+horizontal_alignment = 1
+
+[node name="TopSpacer" type="Control" parent="SafeArea/MainColumn"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScreenHost" type="Control" parent="SafeArea/MainColumn" groups=["menu_screen_host"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PrimaryMenu" type="VBoxContainer" parent="SafeArea/MainColumn"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="BtnNewGame" type="Button" parent="SafeArea/MainColumn/PrimaryMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "New Game"
+
+[node name="BtnContinue" type="Button" parent="SafeArea/MainColumn/PrimaryMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Continue"
+
+[node name="BtnSettings" type="Button" parent="SafeArea/MainColumn/PrimaryMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Settings"
+
+[node name="BtnQuit" type="Button" parent="SafeArea/MainColumn/PrimaryMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+text = "Quit"
+
+[node name="MidSpacer" type="Control" parent="SafeArea/MainColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Footer" type="HBoxContainer" parent="SafeArea/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VersionLabel" type="Label" parent="SafeArea/MainColumn/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.45, 0.5, 0.55, 1)
+theme_override_font_sizes/font_size = 12
+text = "v0.1 — demo"
+
+[node name="Layer_Overlay" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ModalHost" type="Control" parent="Layer_Overlay"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
